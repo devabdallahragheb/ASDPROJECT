@@ -10,7 +10,6 @@ public class BronzeCreditCardInterestCalculationStrategy implements InterestCalc
     private static final BigDecimal INTEREST_RATE = BigDecimal.valueOf(0.1);
     @Override
     public BigDecimal calculateInterest(Account account) {
-        //BigDecimal rate = new BigDecimal("0.1");
         return account.getBalance().multiply(INTEREST_RATE);
     }
 

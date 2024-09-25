@@ -94,24 +94,18 @@ public class CreditCardAccountServiceImpl extends AccountService {
                     (previousBalance.subtract(totalCredits)).multiply(rate));
 
             BigDecimal totalDue = newBalance.multiply(minimumPaymentRate);
-//            if (totalDue.compareTo(BigDecimal.ZERO) < 0) {
-//                totalDue = BigDecimal.ZERO;
-//            }
-
             Customer owner = account.getAccountOwner();
             String address = owner.getStreet() + ", " + owner.getCity() + ", " + owner.getState() + ", " + owner.getZip();
 
             report.append("Name= ").append(owner.getName()).append("\r\n");
             report.append("Address= ").append(address).append("\r\n");
             report.append("CC number= ").append(account.getAccountNumber()).append("\r\n");
-            //report.append("CC type= ").append(accountparty.account.getAccountType().getClass().getSimpleName().toUpperCase()).append("\r\n");
             report.append("Previous balance = $ ").append(previousBalance.setScale(2, RoundingMode.HALF_UP)).append("\r\n");
             report.append("Total Credits = $ ").append(totalCredits.setScale(2, RoundingMode.HALF_UP)).append("\r\n");
             report.append("Total Charges = $ ").append(totalCharges.setScale(2, RoundingMode.HALF_UP)).append("\r\n");
             report.append("New balance = $ ").append(newBalance.setScale(2, RoundingMode.HALF_UP)).append("\r\n");
             report.append("Total amount due = $ ").append(totalDue.setScale(2, RoundingMode.HALF_UP)).append("\r\n");
             report.append("\r\n");
-
             account.setPreviousBalance(newBalance);
             getAccountRepository().update(account);
             report.append("\n\n");
