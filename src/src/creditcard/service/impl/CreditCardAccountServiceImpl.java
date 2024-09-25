@@ -3,6 +3,7 @@ package creditcard.service.impl;
 
 import accountparty.account.Account;
 import accountparty.account.AccountEntry;
+import accountparty.notification.LoggerObserver;
 import creditcard.entity.CCCustomer;
 import creditcard.entity.CreditCardAccount;
 import creditcard.entity.CreditCardAccountType;
@@ -38,6 +39,7 @@ public class CreditCardAccountServiceImpl extends AccountService {
         rulesEngine.addRule(new CompanyAccountEmailRule());
         rulesEngine.addRule(new PersonalAccountEmailRule());
         addTransactionObserver(EmailSender.getInstance(rulesEngine));
+        addTransactionObserver(LoggerObserver.getInstance(rulesEngine));
     }
 
     public CreditCardAccount createCreditCardAccountForCustomer(CCCustomer customer, String creditCardType) {
