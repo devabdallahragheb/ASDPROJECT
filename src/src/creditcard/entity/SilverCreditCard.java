@@ -8,7 +8,7 @@ public class SilverCreditCard extends CreditCardAccountType {
 
 
     public SilverCreditCard() {
-        super(new SilverCreditCardInterestCalculationStrategy(), new SilverMinimumPaymentStrategy());
+        super(SilverCreditCardInterestCalculationStrategy.getInstance(), SilverMinimumPaymentStrategy.getInstance());
     }
 
 
