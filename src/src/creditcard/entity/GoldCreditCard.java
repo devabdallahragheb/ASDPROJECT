@@ -7,9 +7,8 @@ public class GoldCreditCard extends CreditCardAccountType {
 
 
     public GoldCreditCard() {
-        super(new GoldCreditCardInterestCalculationStrategy(), new GoldMinimumPaymentStrategy());
+        super(GoldCreditCardInterestCalculationStrategy.getInstance(), GoldMinimumPaymentStrategy.getInstance());
     }
-
 
 
     @Override
