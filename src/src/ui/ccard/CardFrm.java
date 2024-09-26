@@ -16,7 +16,7 @@ public class CardFrm extends javax.swing.JFrame
     /****
      * init variables in the object
      ****/
-    String clientName, street, city, zip, state, accountType, amountDeposit, expdate, ccnumber, accountNumber;
+    String clientName, accountType, amountDeposit, expdate, ccnumber, accountNumber;
     boolean newaccount;
     private DefaultTableModel model;
     private JTable JTable1;

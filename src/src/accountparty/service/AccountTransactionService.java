@@ -10,7 +10,5 @@ public interface AccountTransactionService {
     void deposit(String accountNumber, BigDecimal amount);
     void withdraw(String accountNumber, BigDecimal amount);
     String generateReport();
-    TransactionObservable getTransactionObservable();
-
     void addTransactionObserver(Observer observer);
 }

@@ -17,7 +17,6 @@ public class AccountEntry {
 
     private final LocalDateTime transactionDate = LocalDateTime.now();
 
-    private final BigDecimal balanceAfter;
 
     private final TransactionType transactionType;
 
@@ -28,22 +27,10 @@ public class AccountEntry {
         this.fromAccount = fromAccount;
         this.toAccount = toAccount;
         this.amount = amount;
-        this.balanceAfter = balanceAfter;
         this.transactionType = transactionType;
     }
 
 
-    public String getDescription() {
-        return description;
-    }
-
-    public Account getFromAccount() {
-        return fromAccount;
-    }
-
-    public Account getToAccount() {
-        return toAccount;
-    }
 
 
     public BigDecimal getAmount() {

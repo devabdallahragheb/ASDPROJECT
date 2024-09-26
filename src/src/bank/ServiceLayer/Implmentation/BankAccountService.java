@@ -50,9 +50,7 @@ public class BankAccountService extends AccountService {
 
     }
 
-    public String getAccountNumber(Account account) {
-        return account.getAccountNumber();
-    }
+
 
     public List<Account> getAllAccounts() {
         return this.getAccountRepository().getAllAccounts();

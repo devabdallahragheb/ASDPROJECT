@@ -36,21 +36,11 @@ public abstract class AccountService implements AccountTransactionService {
         transactionObservable.notifyObservers(account, "withdraw", amount);
     }
 
-    public void transferFunds(String fromAccountNumber, String toAccountNumber, BigDecimal amount, String description) {
-        Account fromAccount = accountRepository.findByAccountNumber(fromAccountNumber);
-        Account toAccount = accountRepository.findByAccountNumber(toAccountNumber);
-        fromAccount.transferFunds(toAccount, amount);
-        accountRepository.update(fromAccount);
-        accountRepository.update(toAccount);
-    }
 
     public AccountRepository getAccountRepository() {
         return accountRepository;
     }
 
-    public TransactionObservable getTransactionObservable() {
-        return transactionObservable;
-    }
 
     @Override
     public void addTransactionObserver(Observer observer) {

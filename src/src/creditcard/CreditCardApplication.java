@@ -16,9 +16,6 @@ import java.math.BigDecimal;
 public class CreditCardApplication {
     public static void main(String[] args) {
         Customer company1 = new CCCustomer("Company 1", "info@company1.com", "1000 N, 4th street", "Fairfield", "IA", "52557");
-        Customer company2 = new CCCustomer("Company 2", "info@company2.com", "1001 N, 5th street", "Des Moines", "IA", "52000");
-
-
 
         AccountTypeFactory goldCreditCard = new GoldCreditCardTypeFactory();
         AccountTypeFactory silverCreditCard = new SilverCreditCardTypeFactory();
