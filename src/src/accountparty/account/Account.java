@@ -62,7 +62,7 @@ public abstract class Account {
 
     private void validateForWithdrawal(BigDecimal amount) {
         if (balance.compareTo(amount) < 0) {
-            //throw new IllegalArgumentException("Insufficient funds");
+            throw new IllegalArgumentException("Insufficient funds");
         }
 
         if (amount.compareTo(BigDecimal.ZERO) <= 0) {
