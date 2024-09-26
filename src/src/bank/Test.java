@@ -3,6 +3,7 @@ package bank;
 
 
 import accountparty.account.Account;
+import accountparty.notification.LoggerObserver;
 import bank.ServiceLayer.Implmentation.BankAccountService;
 import bank.entity.BankingAccount;
 import bank.entity.Custmers.Company;
@@ -26,6 +27,7 @@ public class Test {
 
         AccountTransactionService accountService = new BankAccountService(accountRepository);
         accountService.addTransactionObserver(EmailSender.getInstance(rulesEngine));
+        accountService.addTransactionObserver(LoggerObserver.getInstance(rulesEngine));
 
         // Create accounts and customers
         Customer johnDoe = new Company("John Doe", "john.doe@example.com", "1000 Main", "Fairfield", "IA", "52556", 10);

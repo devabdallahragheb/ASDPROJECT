@@ -2,6 +2,7 @@ package bank.ServiceLayer.Implmentation;
 
 
 import accountparty.account.Account;
+import accountparty.notification.LoggerObserver;
 import accountparty.repository.AccountRepository;
 import bank.factory.BankAccountFactory;
 import bank.factory.CheckingTypeFactory;
@@ -29,6 +30,7 @@ public class BankAccountService extends AccountService {
         rulesEngine.addRule(new CompanyAccountEmailRule());
         rulesEngine.addRule(new PersonalAccountEmailRule());
         addTransactionObserver(EmailSender.getInstance(rulesEngine));
+        addTransactionObserver(LoggerObserver.getInstance(rulesEngine));
     }
 
     public Account createAccount(Customer customer, String accountType) {
@@ -48,9 +50,7 @@ public class BankAccountService extends AccountService {
 
     }
 
-    public String getAccountNumber(Account account) {
-        return account.getAccountNumber();
-    }
+
 
     public List<Account> getAllAccounts() {
         return this.getAccountRepository().getAllAccounts();

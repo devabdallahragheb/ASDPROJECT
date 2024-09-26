@@ -24,10 +24,6 @@ public class CreditCardAccount extends Account {
     }
 
 
-    public void charge(BigDecimal amount) {
-        withdraw(amount);
-    }
-
 
 
     public String getCcNumber() {

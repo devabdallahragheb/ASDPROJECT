@@ -17,7 +17,6 @@ public abstract class Account {
     private final Customer accountOwner;
     private final List<AccountEntry> entryList;
     private final AccountType accountType;
-    private AccountState accountState;
     private BigDecimal previousBalance;
 
     protected Account(String accountNumber, Customer accountOwner, AccountType accountType) {
@@ -26,7 +25,6 @@ public abstract class Account {
         this.accountOwner = accountOwner;
         this.entryList = new ArrayList<>();
         this.accountType = accountType;
-        this.accountState = AccountState.ACTIVE;
         this.previousBalance = BigDecimal.valueOf(0);
     }
 
@@ -50,20 +48,9 @@ public abstract class Account {
 
 
     private void deposit(BigDecimal amount, String description) {
-        validateForDeposit(amount);
         balance = balance.add(amount);
         entryList.add(new AccountEntry(description, null, this, amount, balance, TransactionType.CREDIT));
     }
-
-
-
-    private void validateForDeposit(BigDecimal amount) {
-        if (amount.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new IllegalArgumentException("Deposit amount must be greater than zero");
-        }
-    }
-
-
 
     public void withdraw(BigDecimal amount) {
         validateForWithdrawal(amount);
@@ -151,16 +138,6 @@ public abstract class Account {
     }
 
 
-
-    public  void  closeAccount(){
-        BigDecimal accountBalance = getBalance();
-
-        if (accountBalance.compareTo(BigDecimal.ZERO) > 0) {
-            withdraw(accountBalance);
-        }
-
-        accountState = AccountState.CLOSED;
-    }
 
 
     public BigDecimal getBalance() {

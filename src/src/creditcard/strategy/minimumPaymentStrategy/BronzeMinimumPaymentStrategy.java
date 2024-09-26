@@ -15,11 +15,6 @@ public class BronzeMinimumPaymentStrategy implements MinimumPaymentStrategy{
         }
         return bronzeMinimumPaymentStrategy;
     }
-    @Override
-    public BigDecimal minimumPayment(Account account) {
-        BigDecimal mp = new BigDecimal("0.14");
-        return account.getBalance().add(account.getBalance().multiply(mp));
-    }
     public BigDecimal getRate() {
         return RATE;
     }

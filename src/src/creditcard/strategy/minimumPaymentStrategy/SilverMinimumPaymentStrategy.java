@@ -15,11 +15,6 @@ public class SilverMinimumPaymentStrategy implements MinimumPaymentStrategy{
         }
         return silverMinimumPaymentStrategy;
     }
-    @Override
-    public BigDecimal minimumPayment(Account account) {
-        BigDecimal mp = new BigDecimal("0.12");
-        return account.getBalance().add(account.getBalance().multiply(mp));
-    }
     public BigDecimal getRate() {
         return RATE;
     }
